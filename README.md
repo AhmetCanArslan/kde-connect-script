@@ -47,8 +47,13 @@
 ## How it works
 
 - The script checks your clipboard for file paths and sends each file to your device using KDE Connect.
-- If no valid file paths are found, it checks if the clipboard contains an image. If so, it sends the latest screenshot from your screenshots directory.
+- If no valid file paths are found, it checks if the clipboard contains an raw image. If so, it sends the latest screenshot from your screenshots directory.
 - If neither is found, it prints an error message.
+- You can set a custom shortcut for script in settings. For example, i've set it to ALT + S. Whenever shortcut is triggered, below code will be executed.
+ ```sh
+  /bin/bash /home/juan/Scripts/send_clipboard.sh
+ ```
+
 
 ## Troubleshooting
 
