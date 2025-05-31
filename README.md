@@ -5,7 +5,7 @@ A collection of useful Bash scripts for Linux automation and productivity tasks.
 ## 📁 Scripts Overview
 
 ### 📤 [sendClipboardtoDevice](./sendClipboardtoDevice/)
-Send files or screenshots from your clipboard to mobile devices via KDE Connect.
+Send files or screenshots from your clipboard to connected devices via KDE Connect.
 
 **Features:**
 - Send files that are copied to clipboard directly to your device
@@ -28,25 +28,6 @@ Open files and folders with Visual Studio Code from file manager or desktop shor
 **Requirements:** Visual Studio Code
 
 ---
-
-## 🚀 Quick Setup
-
-1. Clone this repository:
-   ```bash
-   git clone <repository-url>
-   cd linux-scripts
-   ```
-
-2. Make scripts executable:
-   ```bash
-   find . -name "*.sh" -exec chmod +x {} \;
-   ```
-
-3. Add to your PATH (optional):
-   ```bash
-   echo 'export PATH="$HOME/Code/linux-scripts:$PATH"' >> ~/.bashrc
-   source ~/.bashrc
-   ```
 
 ## 📝 Usage
 
