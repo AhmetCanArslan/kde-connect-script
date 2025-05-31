@@ -1,62 +1,61 @@
-# 📤 Send Clipboard Files to Devices via KDE Connect
+# 🐧 Linux Scripts Collection
 
-`send_clipboard.sh` is a Bash script that allows you to quickly send files or screenshots from your clipboard to your mobile device using KDE Connect.
+A collection of useful Bash scripts for Linux automation and productivity tasks.
 
-## Features
+## 📁 Scripts Overview
 
-- Sends file paths copied to your clipboard directly to your device.
-- If the clipboard contains an image (such as a screenshot), it sends the latest screenshot from your `~/Pictures/Screenshots` directory.
-- Provides clear notifications for each action and error.
+### 📤 [sendClipboardtoDevice](./sendClipboardtoDevice/)
+Send files or screenshots from your clipboard to mobile devices via KDE Connect.
 
-## Requirements
+**Features:**
+- Send files that are copied to clipboard directly to your device
+- Automatically send latest screenshot when clipboard contains raw image data
+- Works with any KDE Connect paired device
 
-- [KDE Connect](https://kdeconnect.kde.org/) (`kdeconnect-cli` must be installed and configured)
-- [xclip](https://github.com/astrand/xclip) (for clipboard access)
-- Bash shell
-- Your device must be paired and reachable via KDE Connect.
+**Requirements:** KDE Connect, xclip
 
-## Installation
+---
 
-1. Copy `send_clipboard` to a directory in your `$PATH`, e.g., `~/bin` or `/usr/local/bin`.
-2. Make it executable:
+### 💻 [openWithVSCode](./openWithVSCode/)
+Open files and folders with Visual Studio Code from file manager or desktop shortcuts.
 
-   ```sh
-   chmod +x /path/to/send_clipboard.sh
+**Features:**
+- Handle file:// URIs from file managers
+- Decode URL-encoded paths (spaces, special characters)
+- Open each path in a new VS Code window
+- Support for multiple file/folder selection
+
+**Requirements:** Visual Studio Code
+
+---
+
+## 🚀 Quick Setup
+
+1. Clone this repository:
+   ```bash
+   git clone <repository-url>
+   cd linux-scripts
    ```
 
-## Usage
+2. Make scripts executable:
+   ```bash
+   find . -name "*.sh" -exec chmod +x {} \;
+   ```
 
-1. **Send files:**
-   - Copy one or more file paths to your clipboard (each path on a new line).
-   - Run the script:
+3. Add to your PATH (optional):
+   ```bash
+   echo 'export PATH="$HOME/Code/linux-scripts:$PATH"' >> ~/.bashrc
+   source ~/.bashrc
+   ```
 
-     ```sh
-     ./send_clipboard.sh
-     ```
+## 📝 Usage
 
-2. **Send screenshots:**
-   - Copy an image (e.g., take a screenshot to clipboard).
-   - Run the script:
+Each script folder contains its own detailed README with specific installation and usage instructions. Navigate to the respective folder for more information.
 
-     ```sh
-     ./send_clipboard.sh
-     ```
+## 🤝 Contributing
 
-   - The script will detect the image in the clipboard and send the most recent screenshot from `~/Pictures/Screenshots`.
-
-## How it works
-
-- The script checks your clipboard for file paths and sends each file to your device using KDE Connect.
-- If no valid file paths are found, it checks if the clipboard contains an raw image. If so, it sends the latest screenshot from your screenshots directory.
-- If neither is found, it prints an error message.
-- You can set a custom shortcut for script in settings. For example, i've set it to ALT + S. Whenever shortcut is triggered, below code will be executed.
- ```sh
-  /bin/bash /home/juan/Scripts/send_clipboard.sh
- ```
-
-
-## Troubleshooting
-
-- Make sure your device is paired and visible in KDE Connect.
-- Ensure `kdeconnect-cli` and `xclip` are installed and available in your `$PATH`.
-- The screenshots directory is set to `~/Pictures/Screenshots` by default. Change the `SCREENSHOT_DIR` variable in the script if your screenshots are saved elsewhere.
+Feel free to add new scripts or improve existing ones. Each script should:
+- Have its own folder with descriptive name
+- Include a detailed README.md
+- Follow consistent naming conventions
+- Be well-commented and documented
