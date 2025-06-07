@@ -29,6 +29,19 @@ Open files and folders with Visual Studio Code from file manager or desktop shor
 
 ---
 
+### 🔄 [convertPptxtoPdf](./convertPptxtoPdf/)
+Convert Microsoft PowerPoint (.pptx) files to PDF using LibreOffice.
+
+**Features:**
+- Converts `.pptx` to `.pdf`.
+- Uses LibreOffice `soffice` command.
+- Supports batch conversion.
+- Outputs PDF in the same directory as the source.
+
+**Requirements:** LibreOffice
+
+---
+
 ## 📝 Usage
 
 Each script folder contains its own detailed README with specific installation and usage instructions. Navigate to the respective folder for more information.
