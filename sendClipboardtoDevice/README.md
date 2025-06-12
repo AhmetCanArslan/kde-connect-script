@@ -1,19 +1,21 @@
 # 📤 Send Clipboard to Device Script
 
-`send_clipboard.sh` is a Bash script that sends files or screenshots from your clipboard to connected devices via KDE Connect. It intelligently handles both file paths and raw image data in the clipboard.
+`send_clipboard.sh` is a Bash script that sends files, folders, or screenshots from your clipboard to connected devices via KDE Connect. It intelligently handles file paths, folders (by compressing them), and raw image data in the clipboard.
 
 ## Features
 
 - Send files copied to clipboard directly to your paired device
 - Automatically detects and sends the latest screenshot when clipboard contains raw PNG data
 - Works with any KDE Connect paired device (uses first available device)
-- Allows sending multiple files from the clipboard.
+- Allows sending multiple files from the clipboard
+- **NEW:** Sends folders by compressing them into a zip archive before transfer
 
 ## Requirements
 
 - [KDE Connect](https://kdeconnect.kde.org/) with at least one paired device
 - `xclip` for clipboard access
 - Screenshots directory at `~/Pictures/Screenshots` (for image fallback)
+- `zip` for compressing folders
 
 ## Installation
 
@@ -49,18 +51,24 @@
    - Run the script
    - Files will be sent to your first paired device
 
-2. **Send screenshots:**
+2. **Send folders:**
+   - Copy a folder to clipboard (Copy from file manager Ctrl + C)
+   - Run the script
+   - The folder will be compressed into a zip archive and sent to your first paired device
+
+3. **Send screenshots:**
    - Take a screenshot (clipboard contains raw PNG data)
    - Run the script
    - The most recent screenshot from `~/Pictures/Screenshots` will be sent
 
 ## How it Works
 
-1. **File Detection:** Reads clipboard content and treats each line as a potential file path
+1. **File/Folder Detection:** Reads clipboard content and treats each line as a potential file or folder path
 2. **File Validation:** Checks if each path exists and sends valid files
-3. **Image Fallback:** If no files are found but clipboard contains PNG data, sends the latest screenshot
-4. **Device Selection:** Automatically uses the first paired KDE Connect device
-5. **Feedback:** Provides clear status messages for each operation when executed in terminal
+3. **Folder Handling:** If a folder is detected, it is compressed into a zip archive before sending
+4. **Image Fallback:** If no files are found but clipboard contains PNG data, sends the latest screenshot
+5. **Device Selection:** Automatically uses the first paired KDE Connect device
+6. **Feedback:** Provides clear status messages for each operation when executed in terminal
 
 ## Configuration
 
@@ -93,6 +101,12 @@ SCREENSHOT_DIR="$HOME/Pictures/MyScreenshots"
   ```bash
   sudo apt install xclip  # Debian/Ubuntu
   sudo dnf install xclip  # Fedora
+  ```
+
+- **zip not found:** Install zip
+  ```bash
+  sudo apt install zip  # Debian/Ubuntu
+  sudo dnf install zip  # Fedora
   ```
 
 - **Screenshot not found:** Check that screenshots are saved to `~/Pictures/Screenshots` or update the `SCREENSHOT_DIR` variable

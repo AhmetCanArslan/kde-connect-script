@@ -5,12 +5,13 @@ A collection of useful Bash scripts for Linux automation and productivity tasks.
 ## 📁 Scripts Overview
 
 ### 📤 [sendClipboardtoDevice](./sendClipboardtoDevice/)
-Send files or screenshots from your clipboard to connected devices via KDE Connect.
+Send files, folders, or screenshots from your clipboard to connected devices via KDE Connect.
 
 **Features:**
 - Send files that are copied to clipboard directly to your device
 - Automatically send latest screenshot when clipboard contains raw image data
 - Works with any KDE Connect paired device
+- Sends folders by compressing them into a zip archive before transfer
 
 **Requirements:** KDE Connect, xclip
 
